@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&display=swap');
+
+/* Reset e configurações base */
+.container {
+  font-family: 'Share Tech Mono', monospace;
+  background: #000;
+  color: #00ff41;
+  min-height: 100vh;
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  z-index: 1;
+}
+
+/* Matrix Rain Effect */
+.matrixBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+  overflow: hidden;
+}
+
+.matrixColumn {
+  position: absolute;
+  top: -100px;
+  font-size: 14px;
+  line-height: 14px;
+  animation: matrixRain linear infinite;
+  color: #00ff41;
+}
+
+@keyframes matrixRain {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+/* Glitch effect */
+@keyframes glitch {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-2px);
+  }
+  40% {
+    transform: translateX(2px);
+  }
+  60% {
+    transform: translateX(-1px);
+  }
+  80% {
+    transform: translateX(1px);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s ease-in-out infinite alternate;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 2px solid #00ff41;
+  background: rgba(0, 20, 0, 0.8);
+  box-shadow: 0 0 20px #00ff4150;
+  position: relative;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ff41, #008f11, #00ff41);
+  z-index: -1;
+  animation: borderGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+  margin-bottom: 10px;
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ff41, 0 0 30px #00ff41, 0 0 40px #00ff41;
+  }
+}
+
+.header::after {
+  content: 'SYSTEM INITIALIZED...';
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  color: #00ff41;
+  opacity: 0.7;
+}
+
+/* Layout principal */
+.mainLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 20px;
+  min-height: 70vh;
+}
+
+/* Painel de tarefas */
+.tasksPanel {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  background: rgba(0, 20, 0, 0.9);
+  border: 1px solid #00ff41;
+  padding: 20px;
+  box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.1);
+  position: relative;
+}
+
+.tasksPanel::before {
+  content: 'TASK_MANAGER.EXE';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #000;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  color: #00ff41;
+}
+
+/* Seções de tarefas */
+.taskSection {
+  border: 1px solid #008f11;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  position: relative;
+}
+
+.taskSection h3 {
+  color: #00ff41;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #00ff41;
+  padding-bottom: 10px;
+}
+
+/* Tabela de tarefas */
+.taskTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.taskTable th,
+.taskTable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #008f11;
+  font-size: 0.9rem;
+}
+
+.taskTable th {
+  background: rgba(0, 255, 65, 0.1);
+  color: #00ff41;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.taskTable td {
+  color: #ccffcc;
+}
+
+.taskTable tr:hover {
+  background: rgba(0, 255, 65, 0.05);
+  cursor: pointer;
+}
+
+/* Input para nova tarefa */
+.taskInput {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #00ff41;
+  color: #00ff41;
+  padding: 10px;
+  font-family: inherit;
+  margin-top: 10px;
+}
+
+.taskInput:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff41;
+}
+
+.taskInput::placeholder {
+  color: #008f11;
+}
+
+/* Painel de anotações */
+.notesPanel {
+  background: rgba(0, 20, 0, 0.9);
+  border: 1px solid #00ff41;
+  padding: 20px;
+  position: relative;
+  height: fit-content;
+}
+
+.notesPanel::before {
+  content: 'NOTES.TXT';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #000;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  color: #00ff41;
+}
+
+.notesTextarea {
+  width: 100%;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid #008f11;
+  color: #ccffcc;
+  padding: 15px;
+  font-family: inherit;
+  resize: vertical;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.notesTextarea:focus {
+  outline: none;
+  border-color: #00ff41;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.notesTextarea::placeholder {
+  color: #008f11;
+}
+
+/* Painel Pomodoro */
+.pomodoroPanel {
+  background: rgba(0, 20, 0, 0.9);
+  border: 1px solid #00ff41;
+  padding: 20px;
+  position: relative;
+  height: fit-content;
+}
+
+.pomodoroPanel::before {
+  content: 'POMODORO.EXE';
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: #000;
+  padding: 0 10px;
+  font-size: 0.8rem;
+  color: #00ff41;
+}
+
+/* Tabs do Pomodoro */
+.pomodoroTabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #008f11;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #008f11;
+  font-family: inherit;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  color: #00ff41;
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
+}
+
+.tab:hover {
+  color: #00ff41;
+}
+
+/* Timer display */
+.timerDisplay {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.timerTime {
+  font-size: 3rem;
+  color: #00ff41;
+  text-shadow: 0 0 20px #00ff41;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  animation: timerPulse 2s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Botões */
+.btn {
+  background: transparent;
+  border: 2px solid #00ff41;
+  color: #00ff41;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  box-shadow: 0 0 20px #00ff41;
+  text-shadow: 0 0 10px #00ff41;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  box-shadow: none;
+  text-shadow: none;
+}
+
+.btnPrimary {
+  background: rgba(0, 255, 65, 0.1);
+}
+
+.btnDanger {
+  border-color: #ff4444;
+  color: #ff4444;
+}
+
+.btnDanger:hover {
+  box-shadow: 0 0 20px #ff4444;
+  text-shadow: 0 0 10px #ff4444;
+}
+
+.btnSm {
+  padding: 6px 12px;
+  font-size: 0.7rem;
+}
+
+/* Controles do Pomodoro */
+.pomodoroControls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Status indicators */
+.statusIndicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  animation: statusBlink 2s infinite;
+}
+
+.statusActive {
+  background: #00ff41;
+}
+
+.statusPaused {
+  background: #ffaa00;
+}
+
+.statusStopped {
+  background: #ff4444;
+}
+
+@keyframes statusBlink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0.3;
+  }
+}
+
+/* Scrollbar customizada */
+.container ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.container ::-webkit-scrollbar-thumb {
+  background: #00ff41;
+  border-radius: 4px;
+}
+
+.container ::-webkit-scrollbar-thumb:hover {
+  background: #00cc33;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .mainLayout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .tasksPanel {
+    grid-column: 1;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .timerTime {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tasksPanel {
+    grid-template-columns: 1fr;
+  }
+
+  .pomodoroTabs {
+    flex-direction: column;
+  }
+
+  .pomodoroControls {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .taskTable {
+    font-size: 0.8rem;
+  }
+
+  .taskTable th,
+  .taskTable td {
+    padding: 5px;
+  }
+}
