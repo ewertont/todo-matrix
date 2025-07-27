@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&display=swap');
 
-/* Reset e configurações base */
 .container {
   font-family: 'Share Tech Mono', monospace;
   background: #000;
@@ -13,7 +12,6 @@
   z-index: 1;
 }
 
-/* Matrix Rain Effect */
 .matrixBg {
   position: fixed;
   top: 0;
@@ -43,7 +41,6 @@
   }
 }
 
-/* Glitch effect */
 @keyframes glitch {
   0%,
   100% {
@@ -67,7 +64,6 @@
   animation: glitch 0.3s ease-in-out infinite alternate;
 }
 
-/* Header */
 .header {
   text-align: center;
   margin-bottom: 30px;
@@ -126,7 +122,6 @@
   opacity: 0.7;
 }
 
-/* Layout principal */
 .mainLayout {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -135,7 +130,6 @@
   min-height: 70vh;
 }
 
-/* Painel de tarefas */
 .tasksPanel {
   grid-column: 1 / -1;
   display: grid;
@@ -159,7 +153,6 @@
   color: #00ff41;
 }
 
-/* Seções de tarefas */
 .taskSection {
   border: 1px solid #008f11;
   background: rgba(0, 0, 0, 0.7);
@@ -178,7 +171,6 @@
   padding-bottom: 10px;
 }
 
-/* Tabela de tarefas */
 .taskTable {
   width: 100%;
   border-collapse: collapse;
@@ -209,7 +201,6 @@
   cursor: pointer;
 }
 
-/* Input para nova tarefa */
 .taskInput {
   width: 100%;
   background: rgba(0, 0, 0, 0.8);
@@ -229,7 +220,6 @@
   color: #008f11;
 }
 
-/* Painel de anotações */
 .notesPanel {
   background: rgba(0, 20, 0, 0.9);
   border: 1px solid #00ff41;
@@ -272,7 +262,6 @@
   color: #008f11;
 }
 
-/* Painel Pomodoro */
 .pomodoroPanel {
   background: rgba(0, 20, 0, 0.9);
   border: 1px solid #00ff41;
@@ -292,7 +281,6 @@
   color: #00ff41;
 }
 
-/* Tabs do Pomodoro */
 .pomodoroTabs {
   display: flex;
   margin-bottom: 20px;
@@ -324,7 +312,6 @@
   color: #00ff41;
 }
 
-/* Timer display */
 .timerDisplay {
   text-align: center;
   margin: 30px 0;
@@ -349,7 +336,6 @@
   }
 }
 
-/* Botões */
 .btn {
   background: transparent;
   border: 2px solid #00ff41;
@@ -414,14 +400,12 @@
   font-size: 0.7rem;
 }
 
-/* Controles do Pomodoro */
 .pomodoroControls {
   display: flex;
   gap: 10px;
   justify-content: center;
 }
 
-/* Status indicators */
 .statusIndicator {
   display: inline-block;
   width: 8px;
@@ -454,7 +438,6 @@
   }
 }
 
-/* Scrollbar customizada */
 .container ::-webkit-scrollbar {
   width: 8px;
 }
@@ -472,7 +455,6 @@
   background: #00cc33;
 }
 
-/* Responsividade */
 @media (max-width: 1024px) {
   .mainLayout {
     grid-template-columns: 1fr;
